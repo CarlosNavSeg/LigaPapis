@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Papi;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -37,6 +38,15 @@ class PapiRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+
+    public function findAll()
+    {
+    return $this->createQueryBuilder('p')
+        ->orderBy('p.PuntosTotales', 'DESC')
+        ->getQuery()
+        ->getResult()
+    ;
     }
 
 //    /**

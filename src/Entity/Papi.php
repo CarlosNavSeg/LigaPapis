@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\PapiRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use PhpParser\Node\Expr\Cast\Double;
 
 #[ORM\Entity(repositoryClass: PapiRepository::class)]
 class Papi
@@ -14,15 +15,12 @@ class Papi
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\OneToOne(inversedBy: 'papi', cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $User = null;
 
     #[ORM\Column]
-    private ?int $Puntos = null;
-
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $Fecha = null;
+    private ?float $PuntosTotales = null;
 
     public function getId(): ?int
     {
@@ -41,14 +39,14 @@ class Papi
         return $this;
     }
 
-    public function getPuntos(): ?int
+    public function getPuntosTotales(): ?int
     {
-        return $this->Puntos;
+        return $this->PuntosTotales;
     }
 
-    public function setPuntos(int $Puntos): self
+    public function setPuntosTotales(int $Puntos): self
     {
-        $this->Puntos = $Puntos;
+        $this->PuntosTotales = $Puntos;
 
         return $this;
     }
@@ -64,4 +62,6 @@ class Papi
 
         return $this;
     }
+
+    
 }
