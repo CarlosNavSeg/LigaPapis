@@ -123,3 +123,6 @@ body {
     margin: 5rem auto;
   }
   
+  .table-title h3 {
+    margin-top: 2rem;
+  }
