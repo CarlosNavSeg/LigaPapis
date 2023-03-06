@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PapiRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use PhpParser\Node\Expr\Cast\Double;
@@ -21,6 +23,14 @@ class Papi
 
     #[ORM\Column]
     private ?float $PuntosTotales = null;
+
+    #[ORM\OneToMany(mappedBy: 'Papi', targetEntity: EntradasTabla::class)]
+    private Collection $entradasTablas;
+
+    public function __construct()
+    {
+        $this->entradasTablas = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -59,6 +69,36 @@ class Papi
     public function setFecha(?\DateTimeInterface $Fecha): self
     {
         $this->Fecha = $Fecha;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, EntradasTabla>
+     */
+    public function getEntradasTablas(): Collection
+    {
+        return $this->entradasTablas;
+    }
+
+    public function addEntradasTabla(EntradasTabla $entradasTabla): self
+    {
+        if (!$this->entradasTablas->contains($entradasTabla)) {
+            $this->entradasTablas->add($entradasTabla);
+            $entradasTabla->setPapi($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEntradasTabla(EntradasTabla $entradasTabla): self
+    {
+        if ($this->entradasTablas->removeElement($entradasTabla)) {
+            // set the owning side to null (unless already changed)
+            if ($entradasTabla->getPapi() === $this) {
+                $entradasTabla->setPapi(null);
+            }
+        }
 
         return $this;
     }

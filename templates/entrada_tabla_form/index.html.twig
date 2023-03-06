@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EntradaTablaFormController!{% endblock %}
+
+{% block body %}
+{{ form_start (formulario) }}
+
+{{ form_end(formulario) }}
+{% for entrada in entradas %}
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                {{ entrada.papi.User.Nombre }}
+            </div>
+            <div class="col-4">
+                {{ entrada.fecha | date('d-m-Y') }}
+            </div>
+            <div class="col-4">
+                {{entrada.puntos}}
+            </div>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}

@@ -33,6 +33,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?Papi $Papi = null;
+
 
     public function getId(): ?int
     {
@@ -112,6 +115,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setNombre(string $Nombre): self
     {
         $this->Nombre = $Nombre;
+
+        return $this;
+    }
+
+    public function getPapi(): ?Papi
+    {
+        return $this->Papi;
+    }
+
+    public function setPapi(?Papi $Papi): self
+    {
+        $this->Papi = $Papi;
 
         return $this;
     }
