@@ -17,5 +17,31 @@
                 </p>
             </div>
         </div>
+        <div class="row teamNewsTable">
+            <div class="col-8 teamTable">
+                {% for papi in papis %}                    
+                <div class="row teamMember">
+                    <div class="col-6 avatar">
+                        <img/>
+                    </div>
+                    <div class="col-6 shortDescription">
+                        <h2 class="username">
+                            {{papi.User.Nombre}}
+                        </h2>
+                        <p class="memberMessage">
+                            {{papi.puntosTotales}}
+                        </p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="col-4 publicacionTable">
+                <div class="publicacion">
+                    <img src="" alt="" class="img-responsive"/>
+                    <h3> Autor </h3>
+                    <p>Pie de foto</p>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}
