@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -35,6 +37,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?Papi $Papi = null;
+
+    #[ORM\OneToMany(mappedBy: 'User', targetEntity: Publicacion::class)]
+    private Collection $publicacions;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $Avatar = null;
+
+    public function __construct()
+    {
+        $this->publicacions = new ArrayCollection();
+    }
 
 
     public function getId(): ?int
@@ -127,6 +140,48 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setPapi(?Papi $Papi): self
     {
         $this->Papi = $Papi;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Publicacion>
+     */
+    public function getPublicacions(): Collection
+    {
+        return $this->publicacions;
+    }
+
+    public function addPublicacion(Publicacion $publicacion): self
+    {
+        if (!$this->publicacions->contains($publicacion)) {
+            $this->publicacions->add($publicacion);
+            $publicacion->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePublicacion(Publicacion $publicacion): self
+    {
+        if ($this->publicacions->removeElement($publicacion)) {
+            // set the owning side to null (unless already changed)
+            if ($publicacion->getUser() === $this) {
+                $publicacion->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getAvatar(): ?string
+    {
+        return $this->Avatar;
+    }
+
+    public function setAvatar(?string $Avatar): self
+    {
+        $this->Avatar = $Avatar;
 
         return $this;
     }
