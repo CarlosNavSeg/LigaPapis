@@ -22,7 +22,7 @@
                 {% for papi in papis %}                    
                 <div class="row teamMember">
                     <div class="col-6 avatar">
-                        <img/>
+                        <img src="{{asset('papi_avatar/' ~ papi.User.Avatar) }}" alt="papiAvatar" class="img-thumbnail img-fluid width:200px h-200"/>
                     </div>
                     <div class="col-6 shortDescription">
                         <h2 class="username">
