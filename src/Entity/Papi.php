@@ -27,7 +27,7 @@ class Papi
     #[ORM\OneToMany(mappedBy: 'Papi', targetEntity: EntradasTabla::class)]
     private Collection $entradasTablas;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 555)]
     private ?string $Mensaje = null;
 
     public function __construct()
