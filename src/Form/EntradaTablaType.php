@@ -14,7 +14,8 @@ class EntradaTablaType extends AbstractType
     {
         $builder
             ->add('puntos')
-            ->add('add', SubmitType::class)
+            ->add('descripcion')
+            ->add('Sumar', SubmitType::class)
         ;
     }
 

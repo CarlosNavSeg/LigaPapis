@@ -172,3 +172,48 @@ body {
   text-decoration: underline;
 }
 
+form {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5em;
+  width: 260px;
+  height: 300px;
+  border: solid black 2px;
+  margin-bottom: 1.5em;
+}
+
+form input {
+  display: block;
+  margin-bottom: 1.5em;
+  height: 40px;
+  width: 240px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+form label {
+  font-size: 14pt;
+}
+
+form button {
+  width: 240px;
+  height: 40px;
+  color: #ffffff;
+  background-color: rgb(86, 112, 86);
+}
+
+.teamMember {
+  height: 340px;
+  border-bottom: solid black 2px;
+}
+
+.teamMember img {
+  width: 300px;
+  height: 300px;
+  margin-top: 20px;
+}
+
+.teamMember h2 {
+  margin-top: 1.5em;
+}

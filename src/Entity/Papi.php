@@ -27,6 +27,9 @@ class Papi
     #[ORM\OneToMany(mappedBy: 'Papi', targetEntity: EntradasTabla::class)]
     private Collection $entradasTablas;
 
+    #[ORM\Column(length: 255)]
+    private ?string $Mensaje = null;
+
     public function __construct()
     {
         $this->entradasTablas = new ArrayCollection();
@@ -99,6 +102,18 @@ class Papi
                 $entradasTabla->setPapi(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getMensaje(): ?string
+    {
+        return $this->Mensaje;
+    }
+
+    public function setMensaje(string $Mensaje): self
+    {
+        $this->Mensaje = $Mensaje;
 
         return $this;
     }

@@ -28,7 +28,7 @@
             <a class="nav-link" href="/tablapuntos">Puntuacion</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Galeria</a>
+            <a class="nav-link" href="/galeria">Galeria</a>
           </li>
           {% if not app.user %}
           <li class="{{ (app.request.attributes.get('_route') == 'app_login')  ? 'active': ''}} lien"><a href="{{ path('app_login') }}"><i class="fa-solid fa-person"></i> Login</a></li>
@@ -38,9 +38,9 @@
               Perfil
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="/entrada/tabla/form">Añade puntos</a>
-              <a class="dropdown-item" href="#">Entradas a la tabla</a>
-              <a class="dropdown-item" href="#">Añade publicacion</a>
+              <a class="dropdown-item" href="/entrada/tabla/form">Entradas a la tabla</a>
+              <a class="dropdown-item" href="/publicacion">Añade publicacion</a>
+              <a class="dropdown-item" href="/logout">Cerrar sesión</a>
             </div>
           </li>
           {% endif %}

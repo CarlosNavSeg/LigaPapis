@@ -29,19 +29,20 @@
                             {{papi.User.Nombre}}
                         </h2>
                         <p class="memberMessage">
-                            {{papi.puntosTotales}}
+                            {{papi.mensaje}}
                         </p>
                     </div>
                 </div>
                 {% endfor %}
             </div>
             <div class="col-4 publicacionTable">
+            {% for publi in publis %}
                 <div class="publicacion">
-                    <img src="" alt="" class="img-responsive"/>
-                    <h3> Autor </h3>
-                    <p>Pie de foto</p>
+                    <img src={{asset('publicaction_images/' ~ publi.Image) }} alt="imagen publi" class="img-responsive"/>
+                    <p>{{ publi.PieDeFoto}}</p>
                 </div>
             </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

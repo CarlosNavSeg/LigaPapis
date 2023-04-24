@@ -23,6 +23,9 @@ class EntradasTabla
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $Fecha = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $Descripcion = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +63,18 @@ class EntradasTabla
     public function setFecha(\DateTimeInterface $Fecha): self
     {
         $this->Fecha = $Fecha;
+
+        return $this;
+    }
+
+    public function getDescripcion(): ?string
+    {
+        return $this->Descripcion;
+    }
+
+    public function setDescripcion(string $Descripcion): self
+    {
+        $this->Descripcion = $Descripcion;
 
         return $this;
     }

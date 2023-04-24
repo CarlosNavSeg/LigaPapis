@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TablaPublicacionesController!{% endblock %}
+
+{% block body %}
+<div class="row">
+    {% for publi in publis %}
+    <div class="col-3">
+        <img src="{{asset('publicaction_images/' ~ publi.Image) }}" alt="" class="img-fluid">
+        <p class="publifecha">
+            {{ publi.Fecha | date('d-m-Y') }}
+        </p>
+        <p class="publipiefoto">
+            {{publi.PieDeFoto}}
+        </p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
