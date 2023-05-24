@@ -1,49 +1,48 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello IndexController!{% endblock %}
+{% block title %}Hello IndexController!
+{% endblock %}
 
 {% block body %}
-    <div class="wrapper">
-        <div class="row landingImage">
-            <div class="col-6 title">
-                <h1>
-                    Bienvenido a LigaPapis
-                </h1>
-                <span> La mejor liga del mundo.</span>
-            </div>
-            <div class="col-6 description">
-                <p>
-                    En está página podrás encontrar información sobre la liga de papis y sus competidores.
-                </p>
-            </div>
-        </div>
-        <h1 id="participantsTitle"> Participantes </h1>
-        <div class="row teamNewsTable">
-            <div class="col-8 teamTable">
-                {% for papi in papis %}                    
-                <div class="row teamMember">
-                    <div class="col-6 avatar">
-                        <img src="{{asset('papi_avatar/' ~ papi.User.Avatar) }}" alt="papiAvatar" class="img-thumbnail img-fluid width:200px h-200"/>
-                    </div>
-                    <div class="col-6 shortDescription">
-                        <h2 class="username">
-                            {{papi.User.Nombre}}
-                        </h2>
-                        <p class="memberMessage">
-                            {{papi.mensaje}}
-                        </p>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-            <div class="col-4 publicacionTable">
-            {% for publi in publis %}
-                <div class="publicacion">
-                    <img src={{asset('publicaction_images/' ~ publi.Image) }} alt="imagen publi" class="img-responsive"/>
-                    <p>{{ publi.PieDeFoto}}</p>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
+	<div class="wrapper">
+		<div class="row landingImage">
+			<video width="90%" height="960" controls autoplay>
+				<source src={{asset('img/videofiestaaesthetic.mp4') }} alt="imagen publi"/>
+			</video>
+		</div>
+		<h1 id="participantsTitle">
+			Participantes
+		</h1>
+		<div class="row teamNewsTable">
+			<div class="col-3 publicacionTable">
+				<h4>
+					Publicaciones recientes
+				</h4>
+				{% for publi in publis %}
+					<div class="publicacion">
+						<div class="publiInfo">
+							<img src={{asset('publicaction_images/' ~ publi.Image) }} alt="imagen publi" class="img-responsive"/>
+							<p>{{ publi.PieDeFoto}}</p>
+						</div>
+					</div>
+					<hr/>
+				{% endfor %}
+			</div>
+			<div class="col-9 teamTable">
+				<div class="row teamMember">
+					{% for papi in papis %}
+						<div class="col-5 teamMemberCard">
+							<img src="{{asset('papi_avatar/' ~ papi.User.Avatar) }}" alt="papiAvatar" style="width:100%"/>
+							<h2 class="username">
+								{{papi.User.Nombre}}
+							</h2>
+							<p class="memberMessage">
+								{{papi.mensaje}}
+							</p>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
 {% endblock %}

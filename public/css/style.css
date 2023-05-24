@@ -129,31 +129,12 @@ body {
   
 .landingImage {
   width: 100%;
-  height: 220px;
+  height: 960px;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
   align-items: center;
-  background-color: #dedede;
   background-size: auto;
-}
-
-.landingImage .title{
-  padding-bottom: 1.5em;
-  max-width: 340px;
-  border-right: solid 2px black;
-  margin-top: 2em;
-  margin-right: 2em;
-}
-
-.landingImage .title h1 {
-  font-size: 30pt;
-}
-
-.landingImage .description {
-  max-width: 340px;
-  font-size: 22px;
-  margin-top: 2em;
 }
 
 .teamNewsTable {
@@ -161,15 +142,6 @@ body {
   margin-right: auto;
   justify-content: center;
   margin-top: 3em;
-}
-
-.teamMember {
-  padding-right: 2em;
-  border-right: solid black 2px;
-}
-
-.teamMember h2 {
-  text-decoration: underline;
 }
 
 form {
@@ -203,23 +175,124 @@ form button {
   background-color: rgb(86, 112, 86);
 }
 
-.teamMember {
-  height: 340px;
-  border-top: solid black 2px;
-  border-bottom: solid black 2px; 
-}
-
-.teamMember img {
-  width: 300px;
-  height: 300px;
-  margin-top: 20px;
-}
-
-.teamMember h2 {
-  margin-top: 1.5em;
-  margin-bottom: 1.5em;
+.memberMessage {
+  font-size: 14pt;
 }
 
 #participantsTitle {
   margin-top: 1.5em;
+  margin-left: 8em;
+}
+
+.teamMemberCard {
+  width: 540px;
+  height: 860px;
+  background-color: #ffc6b5;
+  opacity: 0.8;
+  margin: 1em 1em 1em 3em;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.teamMemberCard:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.teamMemberCard img {
+  height: 480px;
+}
+
+.teamMemberCard h2 {
+  text-decoration: underline;
+  margin-bottom: 1em;
+  font-weight: bold;
+  margin-top: 1em;
+}
+
+.teamMemberCard h4 {
+  text-decoration: underline;
+  margin-top: 1em;
+}
+
+.teamMemberCard p {
+  margin-top: 1em;
+  margin-right: 1.5em;
+  margin-left: 1.5em;
+  overflow-y: scroll;
+}
+
+.publicacionTable {
+  margin-top: 3em;
+}
+
+.publicacionTable h4 {
+  margin-bottom: 1.5em;
+  text-decoration: underline;
+}
+
+.publicacionTable div p  {
+  font-size: 16pt;
+}
+
+
+.publicacion {
+  height: 280px;
+  margin-top: 3em;
+}
+
+hr {
+  width: 3px;
+  color: black;
+}
+.publiInfo img {
+  height: 160px;
+  width: 240px;
+  margin-top: 1.5em;
+}
+
+.publiInfo p {
+  margin-top: 1.5em;
+  text-align: center;
+}
+
+.publicationFeed {
+  justify-content: center;
+  align-items: center;
+}
+
+.vl {
+  border-left: 6px solid #b6ffb5;
+  height: 3560px;
+}
+
+.publication {
+  width: 560px;
+  height: 400px;
+  background-color: #fdc9b8;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.publication img {
+  width: 540px;
+  height: 240px;
+  border: solid black 2px;
+  margin-top: 1em;
+}
+
+.publipiefoto {
+  margin-top: 1.5em;
+  background-color: white;
+  font-weight: 600;
+  font-size: 14pt;
+  text-align: center;
+  width: 500px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.publifecha {
+  text-align: left !important;
+  margin-left: 1.5em;
+  margin-top: -0.4em;
 }

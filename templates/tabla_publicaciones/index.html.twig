@@ -5,14 +5,16 @@
 {% block body %}
 <div class="row">
     {% for publi in publis %}
-    <div class="col-3">
+    <div class="col-12 publicationFeed">
+    <div class="publication">
         <img src="{{asset('publicaction_images/' ~ publi.Image) }}" alt="" class="img-fluid">
-        <p class="publifecha">
-            {{ publi.Fecha | date('d-m-Y') }}
-        </p>
         <p class="publipiefoto">
             {{publi.PieDeFoto}}
         </p>
+        <p class="publifecha">
+            <i class="fa-regular fa-calendar"></i> {{ publi.Fecha | date('d-m-Y') }}
+        </p>
+    </div>
     </div>
     {% endfor %}
 </div>
