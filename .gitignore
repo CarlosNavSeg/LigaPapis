@@ -19,4 +19,8 @@
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
 
+/public/publicaction_images
+/public/papi_avatar
+/public/img
+
 /migrations
