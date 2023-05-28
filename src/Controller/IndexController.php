@@ -16,13 +16,10 @@ class IndexController extends AbstractController
     {
         $repo = $doctrine->getRepository(Papi::class);
         $papis = $repo->findAll();
-        $repoPublis = $doctrine->getRepository(Publicacion::class);
-        $publis = $repoPublis->findRecents();
 
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
             'papis' => $papis,
-            'publis' => $publis
         ]);
     }
 }

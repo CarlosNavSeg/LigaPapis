@@ -5,44 +5,56 @@
 
 {% block body %}
 	<div class="wrapper">
-		<div class="row landingImage">
-			<video width="90%" height="960" controls autoplay>
-				<source src={{asset('img/videofiestaaesthetic.mp4') }} alt="imagen publi"/>
+		<div class="video-container">
+			<video id="video" width="90%" height="1080" controls autoplay>
+				<source src="img/videofiestaaesthetic.mp4" type="video/mp4"/>
 			</video>
+
+			<div class="row">
+				<div class="overlayText">
+					<div class="ligaTitle">
+						<h1 id="topTitle">
+							LigaPapis
+						</h1>
+						<h1>
+							La liga más salvaje
+							<br/>
+							del mundo.
+						</h1>
+					</div>
+				</div>
+			</div>
 		</div>
 		<h1 id="participantsTitle">
 			Participantes
 		</h1>
-		<div class="row teamNewsTable">
-			<div class="col-3 publicacionTable">
-				<h4>
-					Publicaciones recientes
-				</h4>
-				{% for publi in publis %}
-					<div class="publicacion">
-						<div class="publiInfo">
-							<img src={{asset('publicaction_images/' ~ publi.Image) }} alt="imagen publi" class="img-responsive"/>
-							<p>{{ publi.PieDeFoto}}</p>
-						</div>
+		<div class="teamCarousel">
+			<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img src="..." alt="slide"/>
 					</div>
-					<hr/>
-				{% endfor %}
-			</div>
-			<div class="col-9 teamTable">
-				<div class="row teamMember">
 					{% for papi in papis %}
-						<div class="col-5 teamMemberCard">
-							<img src="{{asset('papi_avatar/' ~ papi.User.Avatar) }}" alt="papiAvatar" style="width:100%"/>
-							<h2 class="username">
-								{{papi.User.Nombre}}
-							</h2>
-							<p class="memberMessage">
-								{{papi.mensaje}}
-							</p>
-						</div>
+					<div class="carousel-item">
+						<figure>
+							<img src="{{ asset('papi_avatar/' ~ papi.User.Avatar) }}" alt="Papi"/>
+							<figcaption>{{papi.User.Nombre}}
+								<br/>
+								{{papi.Mensaje}}
+							</figcaption>
+						</figure>
+					</div>
 					{% endfor %}
+					<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
 				</div>
 			</div>
 		</div>
 	</div>
-{% endblock %}
+</div>-->{% endblock %}
