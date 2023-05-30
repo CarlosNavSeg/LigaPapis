@@ -4,5 +4,10 @@
 
 {% block body %}
     {{  form_start (formulario) }}
+    		<div class="fieldsWrapper">
+			{{form_row(formulario.Image)}}
+			{{form_row(formulario.PieDeFoto)}}
+			{{form_row(formulario.Publicar)}}
+		</div>
     {{ form_end(formulario) }}
 {% endblock %}

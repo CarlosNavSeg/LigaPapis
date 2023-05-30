@@ -5,7 +5,11 @@
 
 {% block body %}
 	{{ form_start (formulario) }}
-
+		<div class="fieldsWrapper">
+			{{form_row(formulario.puntos)}}
+			{{form_row(formulario.descripcion, {'attr': {'class': 'textarea'}})}}
+			{{form_row(formulario.Sumar,)}}
+		</div>
 	{{ form_end(formulario) }}
 		<table class="table-fill">
 			<thead>

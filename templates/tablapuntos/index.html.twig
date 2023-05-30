@@ -16,7 +16,7 @@
     <tbody class="table-hover">
         {% for padre in papis %}
         <tr>
-            <td class="text-left"> {{padre.User.Nombre}} </td>
+            <td class="text-left"> {{loop.index}}. {{padre.User.Nombre}} </td>
             <td class="text-left"> {{padre.PuntosTotales}} </td>
         </tr>
         {% endfor %}
